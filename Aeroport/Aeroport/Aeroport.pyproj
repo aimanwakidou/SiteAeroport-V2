@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -41,6 +41,14 @@
     <Compile Include="Aeroport\settings.py" />
     <Compile Include="Aeroport\urls.py" />
     <Compile Include="Aeroport\wsgi.py" />
+    <Compile Include="searching\apps.py" />
+    <Compile Include="searching\migrations\__init__.py" />
+    <Compile Include="searching\tests.py" />
+    <Compile Include="searching\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="searching\views.py" />
+    <Compile Include="searching\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -48,35 +56,109 @@
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\content\find_flights\" />
     <Folder Include="app\static\app\fonts\" />
     <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\app\scripts\interface_ajax\" />
+    <Folder Include="app\static\app\scripts\forms\" />
+    <Folder Include="app\static\app\scripts\cookies\" />
+    <Folder Include="app\static\app\vendor\" />
+    <Folder Include="app\static\app\vendor\bootstrap-datepicker\" />
+    <Folder Include="app\static\app\vendor\bootstrap-datepicker\css\" />
+    <Folder Include="app\static\app\vendor\bootstrap-datepicker\js\" />
+    <Folder Include="app\static\app\vendor\bootstrap-datepicker\locales\" />
+    <Folder Include="app\static\app\vendor\bootstrap-select\" />
+    <Folder Include="app\static\app\vendor\bootstrap-select\css\" />
+    <Folder Include="app\static\app\vendor\bootstrap-select\js\" />
+    <Folder Include="app\static\app\vendor\bootstrap-timepicker\" />
+    <Folder Include="app\static\app\vendor\bootstrap-timepicker\css\" />
+    <Folder Include="app\static\app\vendor\bootstrap-timepicker\js\" />
+    <Folder Include="app\static\app\vendor\bootstrap-toggle\" />
+    <Folder Include="app\static\app\vendor\bootstrap-toggle\css\" />
+    <Folder Include="app\static\app\vendor\bootstrap-toggle\doc\" />
+    <Folder Include="app\static\app\vendor\bootstrap-toggle\js\" />
+    <Folder Include="app\static\app\vendor\bootstrap\" />
+    <Folder Include="app\static\app\vendor\bootstrap\css\" />
+    <Folder Include="app\static\app\vendor\bootstrap\fonts\" />
+    <Folder Include="app\static\app\vendor\bootstrap\js\" />
+    <Folder Include="app\static\app\vendor\Django\css\" />
+    <Folder Include="app\static\app\vendor\font-awesome-4.7.0\" />
+    <Folder Include="app\static\app\vendor\font-awesome-4.7.0\css\" />
+    <Folder Include="app\static\app\vendor\font-awesome-4.7.0\fonts\" />
+    <Folder Include="app\static\app\vendor\jquery\" />
+    <Folder Include="app\static\app\vendor\Django\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="Aeroport\" />
+    <Folder Include="app\templates\app\find_flights\" />
+    <Folder Include="app\templates\app\find_luggage\" />
+    <Folder Include="searching\" />
+    <Folder Include="searching\migrations\" />
+    <Folder Include="searching\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\find_flights\find_flights.css" />
+    <Content Include="app\static\app\scripts\cookies\Cookies_Utilities.js" />
+    <Content Include="app\static\app\scripts\forms\submitForm.js" />
+    <Content Include="app\static\app\scripts\interface_ajax\Ajax_Utilities.js" />
+    <Content Include="app\static\app\vendor\Django\css\django.css" />
+    <Content Include="app\static\app\content\site_queries.css" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-select\css\bootstrap-select.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-select\js\bootstrap-select.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-timepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-timepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\css\bootstrap-toggle.css" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\css\bootstrap-toggle.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\css\bootstrap2-toggle.css" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\css\bootstrap2-toggle.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\doc\header.png" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\doc\nyt.png" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\doc\nytdev.svg" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\doc\script.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\doc\stylesheet.css" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap-toggle.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap-toggle.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap-toggle.min.js.map" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap2-toggle.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap2-toggle.min.js" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\js\bootstrap2-toggle.min.js.map" />
+    <Content Include="app\static\app\vendor\bootstrap-toggle\LICENSE" />
+    <Content Include="app\static\app\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="app\static\app\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="app\static\app\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\static\app\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="app\static\app\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="app\static\app\vendor\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="app\static\app\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="app\static\app\vendor\jquery\jquery-migrate-3.0.0.js" />
+    <Content Include="app\templates\app\find_flights\find_flights_partial.html" />
+    <Content Include="app\templates\app\find_luggage\find_luggage_partial.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
-    <Content Include="app\static\app\content\bootstrap.css" />
-    <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="app\static\app\scripts\bootstrap.js" />
-    <Content Include="app\static\app\scripts\bootstrap.min.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
-    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
-    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
-    <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\about.html" />
@@ -85,6 +167,7 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="searching\templates\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">

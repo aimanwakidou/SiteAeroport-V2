@@ -3,7 +3,7 @@ Definition of urls for Aeroport.
 """
 
 from datetime import datetime
-from django.conf.urls import url
+from django.conf.urls import url,include
 import django.contrib.auth.views
 
 import app.forms
@@ -31,12 +31,15 @@ urlpatterns = [
             }
         },
         name='login'),
+
     url(r'^logout$',
         django.contrib.auth.views.logout,
         {
             'next_page': '/',
         },
         name='logout'),
+
+    url(r'^search/',include('searching.urls'))
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

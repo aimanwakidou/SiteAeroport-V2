@@ -1,0 +1,8 @@
+/*
+    CSS for flights module --> Search form
+*/
+
+#module_flights > .content > form > .submit {
+    margin-top: 30px;
+}
+

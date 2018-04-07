@@ -7,6 +7,9 @@ import os
 import sys
 
 if __name__ == "__main__":
+    import pymysql
+    pymysql.install_as_MySQLdb()
+
     os.environ.setdefault(
         "DJANGO_SETTINGS_MODULE",
         "Aeroport.settings"

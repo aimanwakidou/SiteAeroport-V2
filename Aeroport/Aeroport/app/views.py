@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
+from app.models import *
 
 def home(request):
     """Renders the home page."""
@@ -16,6 +17,11 @@ def home(request):
         {
             'title':'Home Page',
             'year':datetime.now().year,
+            'airports':Airport.objects.all(),
+            'labels':{
+                'Départ':'depart',
+                'Arrivée':'arrivee'
+             }
         }
     )
 
