@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'AirportDatabase',
         'USER':'root',
-        'PASSWORD':'Gratosot78700',
+        'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'3306'
     }
